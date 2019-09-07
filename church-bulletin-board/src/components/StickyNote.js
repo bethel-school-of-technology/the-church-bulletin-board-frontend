@@ -6,9 +6,6 @@ export default class StickyNote extends Component {
             <div>
                 <h1>Hi World!!</h1>
             </div>
-        )
-           
-    
-        
+        )   
     }
 }
