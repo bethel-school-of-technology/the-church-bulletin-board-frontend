@@ -1,33 +1,78 @@
-.App {
-  text-align: center;
+/* /* body {
+  background: url('https://images.homedepot-static.com/productImages/93a55e1f-3962-4935-97a3-f9db15ee3300/svn/kona-straw-heritage-mill-tile-backsplashes-wc1004-64_1000.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover; 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+body,
+html,
+div.homepage,
+div#react-container {
+  height: 100%;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+div.homepage {
+  background: url('https://images.homedepot-static.com/productImages/93a55e1f-3962-4935-97a3-f9db15ee3300/svn/kona-straw-heritage-mill-tile-backsplashes-wc1004-64_1000.jpg') no-repeat center center fixed;
+  width: 100%;
+  background: #eab92d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div.stickynote {
+  height: 150px;
+  width: 150px;
+  background-color: yellow;
+  margin: 2px 0;
+  position: absolute;
+  cursor: -webkit-grab;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+  overflow: hidden;
 }
+
+div.stickynote:active {
+  cursor: -webkit-grabbing;
+}
+
+div.stickynote p {
+  margin: 0;
+  font-size: 22px;
+  padding: 5px;
+  font-family: "Shadows Into Light", Arial;
+}
+
+div.stickynote:hover > span {
+  opacity: 1;
+}
+
+div.stickynote > span {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity .25s linear;
+}
+
+div.stickynote button {
+  margin: 2px;
+}
+
+div.stickynote > textarea {
+  height: 75%;
+  background: rgba(255, 255, 255, .5);
+}
+
+.homepage > button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+} */
