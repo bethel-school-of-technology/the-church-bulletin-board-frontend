@@ -1,4 +1,4 @@
-// import React from 'react';
+/* // import React from 'react';
 import React, { Component } from 'react';
 import './StickyNote.css'
 
@@ -7,7 +7,7 @@ import './StickyNote.css'
 class StickyNote extends Component {
     render() {
         return (
-            <div className='StickyNote '>
+            <div className='StickyNote'>
                 {/* <ul >
                     <li>
                         <a href="/ServicesPage.js">
@@ -29,9 +29,9 @@ class StickyNote extends Component {
                     </li>
                     
                     
-                </ul> */}
+                </ul> }
             </div>
         )
     }
 }
-export default StickyNote;
+export default StickyNote; */
