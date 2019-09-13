@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import StickyNote from './StickyNote'; /* brings in the sticky notes css affect somehow
- */
+ 
 
 
 
