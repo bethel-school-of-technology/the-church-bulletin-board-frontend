@@ -12,7 +12,9 @@ import Navbar from './components/Navbar';
 function App() {
 	return (
 		<Router>
+			
 			<Navbar />
+			
 			<br />
 			<Route path="/" exact component={HomePage} />
 			<Route path="/classifieds" component={ClassifiedsPage} />
