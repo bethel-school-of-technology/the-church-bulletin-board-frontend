@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import  './CreateClassifiedAd.css';
+
 
 export default class CreateClassifiedAd extends Component {
 	constructor(props) {
