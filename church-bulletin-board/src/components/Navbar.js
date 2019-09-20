@@ -13,16 +13,24 @@ export default class StickyNote extends Component {
 					<div className="collapse navbar-collapse" id="navbarTogglerDemo01">
 						<ul className="navbar-nav mx-auto">
 							<li className="navbar-item">
-								<Link to="/" className="nav-link">Home</Link>
+								<Link to="/" className="navbar-link">
+									Home
+							</Link>
 							</li>
 							<li className="navbar-item">
-								<Link to="./classifieds" className="nav-link">Classifieds</Link>												
+								<Link to="./classifieds" className="nav-link">
+									Classifieds
+							</Link>
 							</li>
 							<li className="navbar-item">
-								<Link to="./services" className="nav-link">Services</Link>					
+								<Link to="./services" className="nav-link">
+									Services
+							</Link>
 							</li>
 							<li className="navbar-item">
-								<Link to="./events" className="nav-link">Events</Link>					
+								<Link to="./events" className="nav-link">
+									Events
+							</Link>
 							</li>
 						</ul>
 					</div>
