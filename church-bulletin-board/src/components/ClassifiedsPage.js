@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import CreateClassifiedAd from './CreateClassifiedAd';
-import FlippingCardPage from './FlippingCardPage';
+
 
 const Ads = props => (
     <tr>
