@@ -74,10 +74,13 @@ export default class CreateClassifiedAd extends Component {
 			ad_title: this.state.ad_title,
 			ad_price: this.state.ad_price,
 			ad_description: this.state.ad_description,
-			ad_contactName: this.ad_contactName,
-			ad_contactPhone: this.ad_contactPhone,
-			ad_contactEmail: this.ad_contactEmail
+			ad_contactName: this.state.ad_contactName,
+			ad_contactPhone: this.state.ad_contactPhone,
+			ad_contactEmail: this.state.ad_contactEmail
 		};
+
+		console.log(newAd);
+
 
 		// MAKE SURE THIS LINES UP WITH BACK END!!
 
@@ -135,6 +138,15 @@ export default class CreateClassifiedAd extends Component {
 									className="form-control"
 									value={this.state.ad_contactName}
 									onChange={this.onChangeAdContactName}
+								/>
+							</div>
+							<div className="form-group">
+								<label>Phone: :</label>
+								<input
+									type="text"
+									className="form-control"
+									value={this.state.ad_contactPhone}
+									onChange={this.onChangeAdContactPhone}
 								/>
 							</div>
 							<div className="form-group">
