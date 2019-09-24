@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import './StickyNote.css';
 
 export default class CreateClassifiedAd extends Component {
 	constructor(props) {
@@ -81,7 +82,6 @@ export default class CreateClassifiedAd extends Component {
 
 		console.log(newAd);
 
-
 		// MAKE SURE THIS LINES UP WITH BACK END!!
 
 		// axios.post('https://localhost:4000/CreateClassifiedAd/add', newAd)
@@ -100,68 +100,101 @@ export default class CreateClassifiedAd extends Component {
 	render() {
 		return (
 			<div>
-				<div className="container sticky col-lg-4 col-md-6 col-sm-12">
-					<h2>Create an Advertisement</h2>
-					<div className="container">
-						<form onSubmit={this.onSubmit}>
-							<div className="form-group">
-								<label>Title: </label>
-								<input
-									type="text"
-									className="form-control"
-									value={this.state.ad_title}
-									onChange={this.onChangeAdTitle}
-								/>
+				{/* Button trigger modal  */}
+				<button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModalLong">
+					Create a Classifed Ad
+				</button>
+				{/* Modal */}
+				<div
+					className="modal fade"
+					id="exampleModalLong"
+					tabIndex="-1"
+					role="dialog"
+					aria-labelledby="exampleModalLongTitle"
+					aria-hidden="true"
+				>
+					<div className="modal-dialog" role="document">
+						<div className="modal-content">
+							<div className="modal-header">
+								<h5 className="modal-title" id="exampleModalLongTitle">
+									Classifed Ad
+								</h5>
+								<button
+									type="button"
+									className="close glyphicon glyphicon-remove"
+									data-dismiss="modal"
+									aria-label="Close"
+								>
+									<span aria-hidden="true">&times;</span>
+								</button>
 							</div>
-							<div className="form-group">
-								<label>Price: </label>
-								<input
-									type="text"
-									className="form-control"
-									value={this.state.ad_price}
-									onChange={this.onChangeAdPrice}
-								/>
+							<div className="modal-body">
+								<form onSubmit={this.onSubmit}>
+									<div className="form-group">
+										<label>Title: </label>
+										<input
+											type="text"
+											className="form-control"
+											value={this.state.ad_title}
+											onChange={this.onChangeAdTitle}
+										/>
+									</div>
+									<div className="form-group">
+										<label>Price: </label>
+										<input
+											type="text"
+											className="form-control"
+											value={this.state.ad_price}
+											onChange={this.onChangeAdPrice}
+										/>
+									</div>
+									<div className="form-group">
+										<label>Description: </label>
+										<textarea
+											type="text"
+											className="form-control"
+											value={this.state.ad_description}
+											onChange={this.onChangeAdDescription}
+										/>
+									</div>
+									<div className="form-group">
+										<label>Contact Name:</label>
+										<input
+											type="text"
+											className="form-control"
+											value={this.state.ad_contactName}
+											onChange={this.onChangeAdContactName}
+										/>
+									</div>
+									<div className="form-group">
+										<label>Contact Phone:</label>
+										<input
+											type="text"
+											className="form-control"
+											value={this.state.ad_contactPhone}
+											onChange={this.onChangeAdContactPhone}
+										/>
+									</div>
+									<div className="form-group">
+										<label>Contact Email:</label>
+										<input
+											type="text"
+											className="form-control"
+											value={this.state.ad_contactEmail}
+											onChange={this.onChangeAdContactEmail}
+										/>
+									</div>
+									<div className="form-group">
+										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
+									</div>
+								</form>
 							</div>
-							<div className="form-group">
-								<label>Description: </label>
-								<textarea
-									type="text"
-									className="form-control"
-									value={this.state.ad_description}
-									onChange={this.onChangeAdDescription}
-								/>
+							<div className="modal-footer">
+								<button type="button" className="btn btn-secondary" data-dismiss="modal">
+									Close
+								</button>
 							</div>
-							<div className="form-group">
-								<label>Contact Name:</label>
-								<input
-									type="text"
-									className="form-control"
-									value={this.state.ad_contactName}
-									onChange={this.onChangeAdContactName}
-								/>
-							</div>
-							<div className="form-group">
-								<label>Phone: :</label>
-								<input
-									type="text"
-									className="form-control"
-									value={this.state.ad_contactPhone}
-									onChange={this.onChangeAdContactPhone}
-								/>
-							</div>
-							<div className="form-group">
-								<label>Contact Email:</label>
-								<input
-									type="text"
-									className="form-control"
-									value={this.state.ad_contactEmail}
-									onChange={this.onChangeAdContactEmail}
-								/>
-							</div>
-							<div className="form-group">
-								<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
-							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
