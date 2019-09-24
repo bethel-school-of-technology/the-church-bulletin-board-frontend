@@ -5,7 +5,7 @@
 
 body{
   font-family:arial,sans-serif;
-  font-style: bold;
+  font-weight: 900;
   font-size:110%;
   text-align: center;
   margin:3em;
@@ -19,7 +19,8 @@ body{
   ul li a{
   text-decoration:none; 
   color:#000;
-  background:#ffc;
+  font-weight: 900;
+  background:#6ba0b4;
   display:block;
   height:10em;
   width:10em;
@@ -56,7 +57,7 @@ ul li:nth-child(even) a{ /* GREEN ROTATION AND COLOR CHANGE */
   -moz-transform:rotate(4deg);
   position:relative;
   top:5px;
-  background:#cfc;
+  background:rgb(96, 160, 96);
 }
 
 
@@ -67,7 +68,7 @@ ul li:nth-child(3n) a{/* PURPLE ROTATION AND COLOR CHANGE */
   -moz-transform:rotate(-3deg);
   position:relative;
   top:-5px;
-  background:#ccf;
+  background:rgb(139, 139, 176);
 }
 
 
@@ -83,12 +84,24 @@ ul li a:hover,ul li a:focus{ /* HOVER ENLARGE FEATURE */
   z-index:5;
 }
 
-
-
 }
+
 p{ /* homepage text */
   font-size: 25px; 
   font-weight: bold;
 }
 
+
+ .modal-content{
+  background-image: url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110958/yellow_page_h0zg70.jpg");
+  background-size: cover;
+  z-index: 5;
+  font-size: 20px;
+  font-family: Impact, sans-serif;
+} 
+
+.modal-title {
+  font-family: Impact, sans-serif;
+  font-size: 30px;
+}
 
