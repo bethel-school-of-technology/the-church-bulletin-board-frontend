@@ -6,11 +6,7 @@ export default class Navbar extends Component {
 	render() {
 		return (
 			<div className='StickyNote'>
-<<<<<<< HEAD
 				<nav className="  navbar-dark bg-dark navbar-expand-lg">
-=======
-				<nav className="navbar-light bg-dark navbar-expand-lg">
->>>>>>> parent of 213c1e3... Merge branch 'Form-CSS' into develop
 					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 						<span className="navbar-toggler-icon"></span>
 					</button>
@@ -26,7 +22,6 @@ export default class Navbar extends Component {
 								<Link to="./services" className="nav-link">Services</Link>					
 							</li>
 							<li className="navbar-item">
-<<<<<<< HEAD
 								<Link to="./events" className="nav-link">Events</Link>
 							</li>			
 						</ul>					
@@ -35,12 +30,6 @@ export default class Navbar extends Component {
                         <button className="btn btn-light my-2 my-sm-2" type="submit">Search</button>
                         </form>			
 					</div>					
-=======
-								<Link to="./events" className="nav-link">Events</Link>					
-							</li>
-						</ul>
-					</div>
->>>>>>> parent of 213c1e3... Merge branch 'Form-CSS' into develop
 				</nav>
 			</div>
 				);
