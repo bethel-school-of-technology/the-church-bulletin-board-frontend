@@ -185,8 +185,12 @@ export default class CreateClassifiedAd extends Component {
 										/>
 									</div>
 									<div className="form-group">
-										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
-									</div>
+									<input className="btn btn-dark"
+										type="submit"
+										data-dismiss="modal"
+										value="SUBMIT Advertisement"									
+									/>
+								</div>
 								</form>
 							</div>
 							<div className="modal-footer">

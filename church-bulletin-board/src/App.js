@@ -8,12 +8,12 @@ import EventsPage from './components/EventsPage';
 import Navbar from './components/Navbar';
 
 
-
 function App() {
 	return (
 		<Router>
 			
 			<Navbar />
+			
 			
 			<br />
 			<Route path="/" exact component={HomePage} />
