@@ -63,14 +63,6 @@ export default class CreateClassifiedAd extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		console.log(`Form submitted:`);
-		console.log(`Ad Title: ${this.state.ad_title}`);
-		console.log(`Ad Price: ${this.state.ad_price}`);
-		console.log(`Ad Description: ${this.state.ad_description}`);
-		console.log(`Ad Contact Name: ${this.state.ad_contactName}`);
-		console.log(`Ad Contact Phone: ${this.state.ad_contactPhone}`);
-		console.log(`Ad Contact Email: ${this.state.ad_contactEmail}`);
-
 		const newAd = {
 			ad_title: this.state.ad_title,
 			ad_price: this.state.ad_price,
@@ -80,17 +72,11 @@ export default class CreateClassifiedAd extends Component {
 			ad_contactEmail: this.state.ad_contactEmail
 		};
 
-		// MAKE SURE THIS LINES UP WITH BACK END!!
-		axios.post('https://localhost:4000/classifiedAds/add', newAd).then((result) => console.log(result.data));
+		console.log(newAd);
 
-		this.setState({
-			ad_title: '',
-			ad_price: '',
-			ad_description: '',
-			ad_contactName: '',
-			ad_contactPhone: '',
-			ad_contactEmail: ''
-		});
+		// MAKE SURE THIS LINES UP WITH BACK END!!
+		axios.post('https://localhost:4000/classifieds/add', newAd).then((result) => console.log(result.data));
+
 	}
 
 	render() {
@@ -188,13 +174,13 @@ export default class CreateClassifiedAd extends Component {
 											/>
 										</div>
 									</div>
+									<div className="modal-footer">
+										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
+										<button type="button" className="btn btn-secondary" data-dismiss="modal">
+											Close
+										</button>
+									</div>
 								</form>
-							</div>
-							<div className="modal-footer">
-								<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
-								<button type="button" className="btn btn-secondary" data-dismiss="modal">
-									Close
-								</button>
 							</div>
 						</div>
 					</div>

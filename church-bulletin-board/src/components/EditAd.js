@@ -26,7 +26,7 @@ export default class EditAd extends Component {
 
 	componentDidMount() {
 		axios
-			.get('http://localhost:4000/classifiedAds/' + this.props.match.params.id)
+			.get('http://localhost:4000/classifieds/' + this.props.match.params.id)
 			.then((response) => {
 				this.setState({
 					ad_title: response.data.ad_title,
@@ -98,8 +98,9 @@ export default class EditAd extends Component {
 			ad_contactEmail: this.state.ad_contactEmail
 		};
 
+		// MAKE SURE THIS LINES UP WITH BACK END!!
 		axios
-			.post('http://localhost:4000/classifiedAds/update/' + this.props.match.params.id, obj)
+			.post('http://localhost:4000/classifieds/update/' + this.props.match.params.id, obj)
 			.then((result) => console.log(result.data));
 
 		this.props.history.push('./classifieds');
@@ -110,7 +111,7 @@ export default class EditAd extends Component {
 			<div>
 				{/* Button trigger modal  */}
 				<button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModalLong">
-					Create a Classifed Ad
+					Edit Ad
 				</button>
 				{/* Modal */}
 				<div
@@ -125,7 +126,7 @@ export default class EditAd extends Component {
 						<div className="modal-content">
 							<div className="modal-header">
 								<h5 className="modal-title" id="createAdModalTitle">
-									Classified Ad
+									EDIT Classified Ad
 								</h5>
 							</div>
 							<div className="modal-body">
@@ -169,9 +170,9 @@ export default class EditAd extends Component {
 										<label>Contact Name:</label>
 										<input
 											type="text"
-                                            className="form-control"
-                                            placeholder="John Smith"
-                                            maxLength="100"
+											className="form-control"
+											placeholder="John Smith"
+											maxLength="100"
 											value={this.state.ad_contactName}
 											onChange={this.onChangeAdContactName}
 										/>
@@ -199,13 +200,13 @@ export default class EditAd extends Component {
 											/>
 										</div>
 									</div>
+									<div className="modal-footer">
+										<input className="btn btn-dark" type="submit" value="UPDATE" />
+										<button type="button" className="btn btn-secondary" data-dismiss="modal">
+											Close
+										</button>
+									</div>
 								</form>
-							</div>
-							<div className="modal-footer">
-								<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
-								<button type="button" className="btn btn-secondary" data-dismiss="modal">
-									Close
-								</button>
 							</div>
 						</div>
 					</div>

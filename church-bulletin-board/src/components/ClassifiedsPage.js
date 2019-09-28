@@ -21,7 +21,13 @@ const Ads = (props) => (
 			</div>
 
 			<div className="card-footer">
-			<Link to={"/edit/"+this.props.ad._id}>Edit</Link>
+				<Link to={'/edit/' + this.props.ad._id}>Edit</Link> |{' '}
+				<button
+					 type="button" className="btn btn-secondary" onClick={() => {
+						props.deleteClassified(props.classifiedAds._id);
+					}}>
+					delete
+				</button>
 			</div>
 		</div>
 	</div>
@@ -30,23 +36,34 @@ const Ads = (props) => (
 export default class ClassifiedsPage extends Component {
 	constructor(props) {
 		super(props);
+		
+		this.deleteClassified = this.deleteClassified.bind(this);
+
 		this.state = { classifiedAds: [] };
 	}
 
 	componentDidMount() {
-		axios
-			.get('http://localhost:4000/classifiedAds/')
+		axios.get('http://localhost:4000/classifieds/')
 			.then((response) => {
 				this.setState({ classifiedAds: response.data });
 			})
 			.catch(function(error) {
 				console.log(error);
 			});
+	}
+	
+	deleteClassified(id) {
+		axios.delete('http://localhost:4000/classifieds/' + id)
+			.then(result => console.log(result.data));
+
+		this.setState({
+			classifiedAds: this.state.classifiedAds.filter(el => el._id !== id)
+		})
 	}
 
 	componentDidUpdate() {
 		axios
-			.get('http://localhost:4000/classifiedAds/')
+			.get('http://localhost:4000/classifieds/')
 			.then((response) => {
 				this.setState({ classifiedAds: response.data });
 			})
@@ -55,13 +72,11 @@ export default class ClassifiedsPage extends Component {
 			});
 	}
 
-	classifiedsList() {
+	classifiedList() {
 		return this.state.classifiedAds.map(function(currentAds, i) {
-			return <Ads ads={currentAds} key={i} />;
+			return <Ads classifiedAds={currentAds} deleteClassified={this.deleteClassified} key={i} />;
 		});
 	}
-
-
 
 	render() {
 		return (
@@ -74,7 +89,7 @@ export default class ClassifiedsPage extends Component {
 				<div className="card-deck">
 					<div className="card col-lg-4 col-md-6 col-sm-12 text-white 
 					 mb-3">
-						{this.classifiedsList()}
+						{this.classifiedList()}
 						<div className="card-header row  justify-content-around">
 							<h2 className="card-title">ITEM: </h2>
 							<h2 className="card-title">$</h2>
@@ -90,9 +105,7 @@ export default class ClassifiedsPage extends Component {
 							</div>
 						</div>
 						<div className="card-footer">
-							
 							{/* {this.classifiedsList()} */}
-							{/* <p className="text-muted">Edit</p> */}
 						</div>
 					</div>
 				</div>
