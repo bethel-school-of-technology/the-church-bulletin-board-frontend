@@ -29,12 +29,12 @@ export default class EditAd extends Component {
 			.get('http://localhost:4000/classifieds/' + this.props.match.params.id)
 			.then((response) => {
 				this.setState({
-					ad_title: response.data.ad_title,
-					ad_price: response.data.ad_price,
-					ad_description: response.data.ad_description,
-					ad_contactName: response.data.ad_contactName,
-					ad_contactPhone: response.data.ad_contactPhone,
-					ad_contactEmail: response.data.ad_contactEmail
+					ad_title: response.data.title,
+					ad_price: response.data.price,
+					ad_description: response.data.description,
+					ad_contactName: response.data.contactName,
+					ad_contactPhone: response.data.contactPhone,
+					ad_contactEmail: response.data.contactEmail
 				});
 			})
 			.catch(function(error) {
@@ -90,12 +90,12 @@ export default class EditAd extends Component {
 		console.log(`Ad Contact Email: ${this.state.ad_contactEmail}`);
 
 		const obj = {
-			ad_title: this.state.ad_title,
-			ad_price: this.state.ad_price,
-			ad_description: this.state.ad_description,
-			ad_contactName: this.state.ad_contactName,
-			ad_contactPhone: this.state.ad_contactPhone,
-			ad_contactEmail: this.state.ad_contactEmail
+			title: this.state.ad_title,
+			price: this.state.ad_price,
+			description: this.state.ad_description,
+			contactName: this.state.ad_contactName,
+			contactPhone: this.state.ad_contactPhone,
+			contactEmail: this.state.ad_contactEmail
 		};
 
 		// MAKE SURE THIS LINES UP WITH BACK END!!
@@ -103,7 +103,9 @@ export default class EditAd extends Component {
 			.post('http://localhost:4000/classifieds/update/' + this.props.match.params.id, obj)
 			.then((result) => console.log(result.data));
 
-		this.props.history.push('./classifieds');
+		this.props.history.push('/classifieds');
+		window.location = '/classifieds';
+
 	}
 
 	render() {
