@@ -6,6 +6,7 @@ import ClassifiedsPage from './components/ClassifiedsPage';
 import ServicesPage from './components/ServicesPage';
 import EventsPage from './components/EventsPage';
 import Navbar from './components/Navbar';
+import EditAd from './components/EditAd';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 			<Route path="/classifieds" component={ClassifiedsPage} />
 			<Route path="/services" component={ServicesPage} />
 			<Route path="/events" component={EventsPage} />
+			<Route path="/edit/:id" component={EditAd}/>
 		</Router>
 	);
 }

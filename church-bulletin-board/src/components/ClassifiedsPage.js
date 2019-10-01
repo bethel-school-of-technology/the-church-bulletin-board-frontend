@@ -21,55 +21,49 @@ const Ads = (props) => (
 			</div>
 
 			<div className="card-footer">
-				<Link to={'/edit/' + props.updateAd._id}>Edit</Link>
+				<Link to={'/edit/' + this.props.ad._id}>Edit</Link> |{' '}
+				<button
+					 type="button" className="btn btn-secondary" onClick={() => {
+						props.deleteClassified(props.classifiedAds._id);
+					}}>
+					delete
+				</button>
 			</div>
 		</div>
 	</div>
-
-	// <div className="card-deck">
-	// 	<div className="card container">
-	// 		<section className="front">
-	// 			<div className="card-body">
-	// 				<h4 className="card-title">{props.ad.ad_title}</h4>
-	// 				<h3 className="card-price">{props.ad.ad_price}</h3>
-	// 				<p className="card-description">{props.ad.ad_description}</p>
-	// 			</div>
-	// 		</section>
-	// 		<section className="back">
-	// 			<div className="card-body">
-	// 				<p className="card-contact-name">{props.ad.ad_contactName}</p>
-	// 				<p className="card-contact-phone">{props.ad.ad_contactPhone}</p>
-	// 				<p className="card-contact-email">{props.ad.ad_contactEmail}</p>
-	// 				<p className="edit text-muted">
-	// 					<Link to={'/edit/' + props.updateAd._id}>Edit</Link>
-	// 				</p>
-	// 			</div>
-	// 		</section>
-	// 	</div>
-	// </div>
-
-	/* // <tr>
-	//     <td>{props.ad.ad_title}</td>
-	//     <td>{props.ad.ad_price}</td>
-	//     <td>{props.ad.ad_description}</td>
-	//     <td>{props.ad.ad_contactName}</td>
-	//     <td>{props.ad.ad_contactPhone}</td>
-	//     <td>{props.ad.ad_contactEmail}</td>
-	//     <td>
-	//         <Link to={"/edit/"+props.updateAd._id}>Edit</Link>
-	//     </td>
-	// </tr> */
 );
 
 export default class ClassifiedsPage extends Component {
 	constructor(props) {
 		super(props);
+		
+		this.deleteClassified = this.deleteClassified.bind(this);
+
 		this.state = { classifiedAds: [] };
 	}
 
 	componentDidMount() {
+		axios.get('http://localhost:4000/classifieds/')
+			.then((response) => {
+				this.setState({ classifiedAds: response.data });
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	}
+	
+	deleteClassified(id) {
+		axios.delete('http://localhost:4000/classifieds/' + id)
+			.then(result => console.log(result.data));
+
+		this.setState({
+			classifiedAds: this.state.classifiedAds.filter(el => el._id !== id)
+		})
+	}
+
+	componentDidUpdate() {
 		axios
-			.get('http://localhost:4000/classifiedAds/')
+			.get('http://localhost:4000/classifieds/')
 			.then((response) => {
 				this.setState({ classifiedAds: response.data });
 			})
@@ -78,15 +72,11 @@ export default class ClassifiedsPage extends Component {
 			});
 	}
 
-	classifiedsList() {
+	classifiedList() {
 		return this.state.classifiedAds.map(function(currentAds, i) {
-			return <Ads ads={currentAds} key={i} />;
+			return <Ads classifiedAds={currentAds} deleteClassified={this.deleteClassified} key={i} />;
 		});
 	}
-
-	// function flip() {
-	// 	$('.card').toggleClass('flipped');
-	// }
 
 	render() {
 		return (
@@ -96,9 +86,10 @@ export default class ClassifiedsPage extends Component {
 					<CreateClassifiedAd />
 				</div>
 
-				<div className="card-deck" >
+				<div className="card-deck">
 					<div className="card col-lg-4 col-md-6 col-sm-12 text-white 
-					 mb-3" >
+					 mb-3">
+						{this.classifiedList()}
 						<div className="card-header row  justify-content-around">
 							<h2 className="card-title">ITEM: </h2>
 							<h2 className="card-title">$</h2>
@@ -114,8 +105,7 @@ export default class ClassifiedsPage extends Component {
 							</div>
 						</div>
 						<div className="card-footer">
-							{/* <Link to={'/edit/' + props.updateAd._id}>Edit</Link> */}
-							<p className="text-muted">Edit</p>
+							{/* {this.classifiedsList()} */}
 						</div>
 					</div>
 				</div>
@@ -123,26 +113,3 @@ export default class ClassifiedsPage extends Component {
 		);
 	}
 }
-
-/* <div className="card-deck">
-					<div className="card-container">
-						<section className="front">
-							<div className="card-body">
-								<h4 className="card-title">Card title</h4>
-								<h4 className="card-price">$ </h4>
-								<p className="card-description">
-									This is a longer card with supporting text below as a natural lead-in to additional
-									content. This content is a little bit longer.
-								</p>
-							</div>
-							<button>Click for Contact Info</button>
-							 LINE 90 <button onClick="flip()">Click for Contact Info</button>  
-						</section>
-						<section className="back">
-							<p className="card-contact-name">Contact: </p>
-							<p className="card-contact-phone text-muted">Phone: </p>
-							<p className="card-contact-email text-muted">Email: </p>
-						</section>
-					</div>
-				</div>
-			</div>  */

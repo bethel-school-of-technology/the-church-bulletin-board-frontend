@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './StickyNote.css';
 
-export default class CreateClassifiedAd extends Component {
+export default class EditAd extends Component {
 	constructor(props) {
 		super(props);
 
@@ -22,6 +22,24 @@ export default class CreateClassifiedAd extends Component {
 			ad_contactPhone: '',
 			ad_contactEmail: ''
 		};
+	}
+
+	componentDidMount() {
+		axios
+			.get('http://localhost:4000/classifieds/' + this.props.match.params.id)
+			.then((response) => {
+				this.setState({
+					ad_title: response.data.ad_title,
+					ad_price: response.data.ad_price,
+					ad_description: response.data.ad_description,
+					ad_contactName: response.data.ad_contactName,
+					ad_contactPhone: response.data.ad_contactPhone,
+					ad_contactEmail: response.data.ad_contactEmail
+				});
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
 	}
 
 	onChangeAdTitle(e) {
@@ -63,7 +81,15 @@ export default class CreateClassifiedAd extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		const newAd = {
+		console.log(`Form submitted:`);
+		console.log(`Ad Title: ${this.state.ad_title}`);
+		console.log(`Ad Price: ${this.state.ad_price}`);
+		console.log(`Ad Description: ${this.state.ad_description}`);
+		console.log(`Ad Contact Name: ${this.state.ad_contactName}`);
+		console.log(`Ad Contact Phone: ${this.state.ad_contactPhone}`);
+		console.log(`Ad Contact Email: ${this.state.ad_contactEmail}`);
+
+		const obj = {
 			ad_title: this.state.ad_title,
 			ad_price: this.state.ad_price,
 			ad_description: this.state.ad_description,
@@ -72,11 +98,12 @@ export default class CreateClassifiedAd extends Component {
 			ad_contactEmail: this.state.ad_contactEmail
 		};
 
-		console.log(newAd);
-
 		// MAKE SURE THIS LINES UP WITH BACK END!!
-		axios.post('https://localhost:4000/classifieds/add', newAd).then((result) => console.log(result.data));
+		axios
+			.post('http://localhost:4000/classifieds/update/' + this.props.match.params.id, obj)
+			.then((result) => console.log(result.data));
 
+		this.props.history.push('./classifieds');
 	}
 
 	render() {
@@ -84,7 +111,7 @@ export default class CreateClassifiedAd extends Component {
 			<div>
 				{/* Button trigger modal  */}
 				<button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModalLong">
-					Create a Classified Ad
+					Edit Ad
 				</button>
 				{/* Modal */}
 				<div
@@ -92,14 +119,14 @@ export default class CreateClassifiedAd extends Component {
 					id="exampleModalLong"
 					tabIndex="-1"
 					role="dialog"
-					aria-labelledby="createAdModalTitle"
+					aria-labelledby="exampleModalLongTitle"
 					aria-hidden="true"
 				>
 					<div className="modal-dialog" role="document">
 						<div className="modal-content">
 							<div className="modal-header">
 								<h5 className="modal-title" id="createAdModalTitle">
-									Classified Ad
+									EDIT Classified Ad
 								</h5>
 							</div>
 							<div className="modal-body">
@@ -122,7 +149,6 @@ export default class CreateClassifiedAd extends Component {
 											<input
 												type="text"
 												className="form-control"
-												placeholder="$"
 												value={this.state.ad_price}
 												onChange={this.onChangeAdPrice}
 											/>
@@ -175,7 +201,7 @@ export default class CreateClassifiedAd extends Component {
 										</div>
 									</div>
 									<div className="modal-footer">
-										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
+										<input className="btn btn-dark" type="submit" value="UPDATE" />
 										<button type="button" className="btn btn-secondary" data-dismiss="modal">
 											Close
 										</button>

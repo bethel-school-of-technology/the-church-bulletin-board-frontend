@@ -98,10 +98,11 @@ p{ /* homepage text */
   z-index: 5;
   font-size: 20px;
   font-family: Impact, sans-serif;
+  padding: 0.5rem;
 } 
 
 .modal-title {
   font-family: Impact, sans-serif;
   font-size: 30px;
+  margin: 0 auto;
 }
-
