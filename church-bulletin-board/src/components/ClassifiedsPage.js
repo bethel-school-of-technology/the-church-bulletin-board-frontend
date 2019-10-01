@@ -6,25 +6,25 @@ import '../ClassifiedsPage.css';
 
 const Ads = (props) => (
 	<div className="card-deck">
-		<div className="card" classStyle="width; 25rem;">
+		<div className="card" classstyle="width; 25rem;">
 			<div className="card-header row">
-				<h4 className="card-title justify-content-start">{props.ad.ad_title}</h4>
-				<h4 className="card-title justify-content-end">{props.ad.ad_price}</h4>
+				<h4 className="card-title justify-content-start">{props.ad.title}</h4>
+				<h4 className="card-title justify-content-end">{props.ad.price}</h4>
 			</div>
 			<div className="card-body">
-				<p className="card-text">{props.ad.ad_description}</p>
+				<p className="card-text">{props.ad.description}</p>
 				<div className="card-text row">
-					<h4 className="card-text justify-content-start">{props.ad.ad_contactName}</h4>
-					<h4 className="card-text justify-content-center">{props.ad.ad_contactPhone}</h4>
-					<h4 className="card-text justify-content-end">{props.ad.ad_contactEmail}</h4>
+					<h4 className="card-text justify-content-start">{props.ad.contactName}</h4>
+					<h4 className="card-text justify-content-center">{props.ad.contactPhone}</h4>
+					<h4 className="card-text justify-content-end">{props.ad.contactEmail}</h4>
 				</div>
 			</div>
 
 			<div className="card-footer">
-				<Link to={'/edit/' + this.props.ad._id}>Edit</Link> |{' '}
+				<Link to={'/edit/' + props.ad._id}>Edit</Link> |{' '}
 				<button
 					 type="button" className="btn btn-secondary" onClick={() => {
-						props.deleteClassified(props.classifiedAds._id);
+						props.deleteClassified(props.ad._id);
 					}}>
 					delete
 				</button>
@@ -49,12 +49,12 @@ export default class ClassifiedsPage extends Component {
 			})
 			.catch(function(error) {
 				console.log(error);
-			});
+			})
 	}
 	
 	deleteClassified(id) {
 		axios.delete('http://localhost:4000/classifieds/' + id)
-			.then(result => console.log(result.data));
+			.then(response => { console.log(response.data)});
 
 		this.setState({
 			classifiedAds: this.state.classifiedAds.filter(el => el._id !== id)
@@ -72,10 +72,20 @@ export default class ClassifiedsPage extends Component {
 			});
 	}
 
+	// classifiedList() {
+	// 	return this.state.classifiedAds.map(function(currentAds, i) {
+	// 		return <Ads classifiedAds={}  />;
+	// 	})
 	classifiedList() {
-		return this.state.classifiedAds.map(function(currentAds, i) {
-			return <Ads classifiedAds={currentAds} deleteClassified={this.deleteClassified} key={i} />;
-		});
+		return this.state.classifiedAds.map(function(currentAd, i) {
+			return <Ads ad={currentAd}  key={i} />;
+		})
+	}
+	submitNewAd(newAd) {
+		let ads=this.state.classifiedAds
+		ads.push(newAd)
+		this.setState({classifiedAds: ads})
+		console.log(ads)
 	}
 
 	render() {
@@ -83,14 +93,15 @@ export default class ClassifiedsPage extends Component {
 			<div>
 				<h2>Classified Section</h2>
 				<div>
-					<CreateClassifiedAd />
+					<CreateClassifiedAd submitAd={this.submitNewAd.bind(this)}/>
+					
 				</div>
 
 				<div className="card-deck">
 					<div className="card col-lg-4 col-md-6 col-sm-12 text-white 
 					 mb-3">
 						{this.classifiedList()}
-						<div className="card-header row  justify-content-around">
+						{/* <div className="card-header row  justify-content-around">
 							<h2 className="card-title">ITEM: </h2>
 							<h2 className="card-title">$</h2>
 						</div>
@@ -103,10 +114,10 @@ export default class ClassifiedsPage extends Component {
 								<h4 className="card-text">Phone: </h4>
 								<h4 className="card-text">Email: </h4>
 							</div>
-						</div>
-						<div className="card-footer">
+						</div> */}
+						{/* <div className="card-footer">
 							{/* {this.classifiedsList()} */}
-						</div>
+						{/* </div> */}                        
 					</div>
 				</div>
 			</div>

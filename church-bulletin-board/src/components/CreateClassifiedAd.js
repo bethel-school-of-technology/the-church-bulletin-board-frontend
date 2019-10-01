@@ -64,19 +64,23 @@ export default class CreateClassifiedAd extends Component {
 		e.preventDefault();
 
 		const newAd = {
-			ad_title: this.state.ad_title,
-			ad_price: this.state.ad_price,
-			ad_description: this.state.ad_description,
-			ad_contactName: this.state.ad_contactName,
-			ad_contactPhone: this.state.ad_contactPhone,
-			ad_contactEmail: this.state.ad_contactEmail
+			title: this.state.ad_title,
+			price: this.state.ad_price,
+			description: this.state.ad_description,
+			contactName: this.state.ad_contactName,
+			contactPhone: this.state.ad_contactPhone,
+			contactEmail: this.state.ad_contactEmail
 		};
 
 		console.log(newAd);
 
 		// MAKE SURE THIS LINES UP WITH BACK END!!
-		axios.post('https://localhost:4000/classifieds/add', newAd).then((result) => console.log(result.data));
+		axios.post('https://localhost:4000/classifieds/add', newAd);  //.then((result) => console.log(result.data));
+			console.log("posted successful")
 
+		this.props.submitAd(newAd)
+
+			//close modal code needed!
 	}
 
 	render() {
@@ -175,7 +179,8 @@ export default class CreateClassifiedAd extends Component {
 										</div>
 									</div>
 									<div className="modal-footer">
-										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement" />
+										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement"  />
+										
 										<button type="button" className="btn btn-secondary" data-dismiss="modal">
 											Close
 										</button>
