@@ -14,8 +14,9 @@ class Search extends React.component{
     }
     render(){
         return(
-            <div>
-                
+            <div className="container">
+                {/* this should somehow connect to the bootstrap search button */}
+              
             </div>
         )
     }

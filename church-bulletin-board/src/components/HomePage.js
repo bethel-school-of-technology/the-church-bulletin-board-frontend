@@ -8,8 +8,8 @@ export default class HomePage extends Component {
         return (
             <div>
                 <h1>Church Bulletin Board!</h1>
-                <p>Welcome to our bulletin board. </p>
-                <p>This space exists to connect people! Or whatever we want it to say</p>
+                <p>Welcome to the Church Bulletin Board. </p>
+                <p>This space exists to connect people! </p>
             </div>
         )
     }
