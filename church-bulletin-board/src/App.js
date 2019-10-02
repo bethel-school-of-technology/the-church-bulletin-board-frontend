@@ -9,12 +9,12 @@ import Navbar from './components/Navbar';
 import EditAd from './components/EditAd';
 
 
-
 function App() {
 	return (
 		<Router>
 			
 			<Navbar />
+			
 			
 			<br />
 			<Route path="/" exact component={HomePage} />
