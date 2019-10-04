@@ -75,13 +75,23 @@ export default class CreateClassifiedAd extends Component {
 		console.log(newAd);
 
 		// MAKE SURE THIS LINES UP WITH BACK END!!
-		axios.post('https://localhost:4000/classifieds/add', newAd);  //.then((result) => console.log(result.data));
-			console.log("posted successful")
+		axios.post('https://localhost:4000/classifieds/add', newAd)
+			.then((result) => console.log(result.data));
+			
 
 		this.props.submitAd(newAd);
 		
 
-			//close modal code needed!
+		this.setState({
+			ad_title: '',
+			ad_price: '',
+			ad_description: '',
+			ad_contactName: '',
+			ad_contactPhone: '',
+			ad_contactEmail: '',	
+		})
+		
+		// window.location = '/classifieds';	//close modal code needed!
 	}
 	
 
