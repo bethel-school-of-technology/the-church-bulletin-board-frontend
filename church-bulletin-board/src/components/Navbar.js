@@ -8,13 +8,11 @@ export default class Navbar extends Component {
 		return (
 			<div className='StickyNote'>
 				<nav className="  navbar navbar-dark bg-dark navbar-expand-lg">
-					
+				
 					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 						<span className="navbar-toggler-icon"></span>
 					</button>
-					{/* <a className="navbar-brand" href="/">
-						<img src="/Users/Willaert/Documents/GitHub/the-church-bulletin-board-frontend/church-bulletin-board/public/ChurchBulletinLogo 2.png" alt="" />
-					</a> */}
+					
 					<div className="collapse navbar-collapse" id="navbarTogglerDemo01">
 						<ul className="navbar-nav mx-auto">
 							<li className="navbar-item">

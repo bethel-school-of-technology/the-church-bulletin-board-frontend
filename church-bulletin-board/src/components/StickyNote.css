@@ -89,6 +89,7 @@ ul li a:hover,ul li a:focus{ /* HOVER ENLARGE FEATURE */
 p{ /* homepage text */
   font-size: 25px; 
   font-weight: bold;
+  background-clip: yellow
 }
 
 
@@ -105,4 +106,20 @@ p{ /* homepage text */
   font-family: Impact, sans-serif;
   font-size: 30px;
   margin: 0 auto;
+}
+
+.mission{
+  background-image:url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110958/yellow_page_h0zg70.jpg");
+  background-size: cover;
+  z-index: 5;
+  font-size: 20px;
+  font-family: Impact, sans-serif;
+  padding: 0.5rem;
+  max-width: 35rem;
+  margin: auto;
+  box-shadow:7px 7px 7px rgba(0,0,0,.7);
+
+}
+.newfont{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }

@@ -78,10 +78,12 @@ export default class CreateClassifiedAd extends Component {
 		axios.post('https://localhost:4000/classifieds/add', newAd);  //.then((result) => console.log(result.data));
 			console.log("posted successful")
 
-		this.props.submitAd(newAd)
+		this.props.submitAd(newAd);
+		
 
 			//close modal code needed!
 	}
+	
 
 	render() {
 		return (
@@ -179,7 +181,7 @@ export default class CreateClassifiedAd extends Component {
 										</div>
 									</div>
 									<div className="modal-footer">
-										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement"  />
+										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement"/>
 										
 										<button type="button" className="btn btn-secondary" data-dismiss="modal">
 											Close
