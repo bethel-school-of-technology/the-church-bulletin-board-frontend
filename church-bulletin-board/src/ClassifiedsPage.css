@@ -1,5 +1,14 @@
 .card {
-	background-color: #6ba0b4; 
-	box-shadow: 7px 7px 15px #314f5a;
+	background-color: #f9ec7b; 
+	box-shadow: 3px 3px 10px;
 	
+}
+
+.card-wrapper {
+	margin-bottom: 20px;
+	display: inline-block
+}
+
+.card-text {
+	font-size: 1rem;
 }

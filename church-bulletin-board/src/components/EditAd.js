@@ -20,27 +20,28 @@ export default class EditAd extends Component {
 			ad_description: '',
 			ad_contactName: '',
 			ad_contactPhone: '',
-			ad_contactEmail: ''
+			ad_contactEmail: '',
+			ad_ads: []
 		};
 	}
 
-	componentDidMount() {
-		axios
-			.get('http://localhost:4000/classifieds/' + this.props.match.params.id)
-			.then((response) => {
-				this.setState({
-					ad_title: response.data.title,
-					ad_price: response.data.price,
-					ad_description: response.data.description,
-					ad_contactName: response.data.contactName,
-					ad_contactPhone: response.data.contactPhone,
-					ad_contactEmail: response.data.contactEmail
-				});
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
-	}
+	// componentDidMount() {
+	// 	axios
+	// 		.get('http://localhost:4000/classifieds/' + this.props.match.params.id)
+	// 		.then((response) => {
+	// 			this.setState({
+	// 				ad_title: response.data.title,
+	// 				ad_price: response.data.price,
+	// 				ad_description: response.data.description,
+	// 				ad_contactName: response.data.contactName,
+	// 				ad_contactPhone: response.data.contactPhone,
+	// 				ad_contactEmail: response.data.contactEmail
+	// 			});
+	// 		})
+	// 		.catch(function(error) {
+	// 			console.log(error);
+	// 		});
+	// }
 
 	onChangeAdTitle(e) {
 		this.setState({
@@ -81,15 +82,7 @@ export default class EditAd extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		console.log(`Form submitted:`);
-		console.log(`Ad Title: ${this.state.ad_title}`);
-		console.log(`Ad Price: ${this.state.ad_price}`);
-		console.log(`Ad Description: ${this.state.ad_description}`);
-		console.log(`Ad Contact Name: ${this.state.ad_contactName}`);
-		console.log(`Ad Contact Phone: ${this.state.ad_contactPhone}`);
-		console.log(`Ad Contact Email: ${this.state.ad_contactEmail}`);
-
-		const obj = {
+		const updateAd = {
 			title: this.state.ad_title,
 			price: this.state.ad_price,
 			description: this.state.ad_description,
@@ -98,13 +91,26 @@ export default class EditAd extends Component {
 			contactEmail: this.state.ad_contactEmail
 		};
 
+		console.log(updateAd)
+
 		// MAKE SURE THIS LINES UP WITH BACK END!!
 		axios
-			.post('http://localhost:4000/classifieds/update/' + this.props.match.params.id, obj)
+			.post('http://localhost:4000/classifieds/update/' + this.props.match.params.id, updateAd)
 			.then((result) => console.log(result.data));
 
-		this.props.history.push('/classifieds');
-		window.location = '/classifieds';
+			// this.props.updateAd(updateAd)
+		
+
+		this.setState({
+			ad_title: '',
+			ad_price: '',
+			ad_description: '',
+			ad_contactName: '',
+			ad_contactPhone: '',
+			ad_contactEmail: '',
+		})
+
+		// window.location = './classifieds';
 
 	}
 
@@ -174,7 +180,7 @@ export default class EditAd extends Component {
 											type="text"
 											className="form-control"
 											placeholder="John Smith"
-											maxLength="100"
+											maxLength="30"
 											value={this.state.ad_contactName}
 											onChange={this.onChangeAdContactName}
 										/>

@@ -15,6 +15,7 @@ body{
   background-size: cover;
   -o-background-size: cover;
 }
+
 @media screen and (min-width: 992px){
   ul li a{
   text-decoration:none; 
@@ -34,13 +35,9 @@ body{
   -webkit-transition:-webkit-transform .15s linear;
 }
 
-
 ul li{ /* effects the navbar notes spacing */
-  margin:1em;
+  margin:2em;
 }
-
-
-
 
 ul li a{ /* rotation to the left */
   transform: rotate(-6deg);
@@ -84,6 +81,14 @@ ul li a:hover,ul li a:focus{ /* HOVER ENLARGE FEATURE */
   z-index:5;
 }
 
+/* .navBrand-image {
+  margin-left: 7rem;
+  /* height: 7rem;
+  width: auto; */
+  /* max-width: 100%; 
+   height: auto; */
+
+
 }
 
 p{ /* homepage text */
@@ -91,7 +96,6 @@ p{ /* homepage text */
   font-weight: bold;
   background-clip: yellow
 }
-
 
  .modal-content{
   background-image: url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110958/yellow_page_h0zg70.jpg");
