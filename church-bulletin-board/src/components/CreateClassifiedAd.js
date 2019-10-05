@@ -160,7 +160,7 @@ export default class CreateClassifiedAd extends Component {
 											type="text"
 											className="form-control"
 											placeholder="John Smith"
-											maxLength="100"
+											maxLength="30"
 											value={this.state.ad_contactName}
 											onChange={this.onChangeAdContactName}
 										/>
