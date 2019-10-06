@@ -36,7 +36,7 @@ body{
 }
 
 ul li{ /* effects the navbar notes spacing */
-  margin:2em;
+  margin:1em;
 }
 
 ul li a{ /* rotation to the left */
@@ -96,7 +96,9 @@ p{ /* homepage text */
   font-weight: bold;
   background-clip: yellow
 }
-
+.buttoncss{
+  padding: 40px;
+}
  .modal-content{
   background-image: url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110958/yellow_page_h0zg70.jpg");
   background-size: cover;
@@ -126,4 +128,40 @@ p{ /* homepage text */
 }
 .newfont{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.classifiedspage{
+  background-image:url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110958/yellow_page_h0zg70.jpg");
+  background-size: cover;
+  z-index: 5;
+  font-size: 20px;
+  font-family: Impact;
+  padding: 0rem;
+  max-width: 40rem;
+  margin: auto;
+  box-shadow:7px 7px 7px rgba(0,0,0,.7);
+
+}
+
+.eventspage{
+  background-image:url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110958/yellow_page_h0zg70.jpg");
+  background-size: cover;
+  z-index: 5;
+  font-size: 20px;
+  font-family: Impact;
+  padding: 0rem;
+  max-width: 40rem;
+  margin: auto;
+  box-shadow:7px 7px 7px rgba(0,0,0,.7);
+}
+.servicespage{
+  background-image:url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110958/yellow_page_h0zg70.jpg");
+  background-size: cover;
+  z-index: 5;
+  font-size: 20px;
+  font-family: Impact;
+  padding: 0rem;
+  max-width: 40rem;
+  margin: auto;
+  box-shadow:7px 7px 7px rgba(0,0,0,.7);
 }

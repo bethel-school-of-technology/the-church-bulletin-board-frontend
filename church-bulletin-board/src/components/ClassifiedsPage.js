@@ -120,11 +120,14 @@ export default class ClassifiedsPage extends Component {
 	render() {
 		return (
 			<div>
+			<div className="classifiedspage" >
 				<h1>Classifieds</h1>
+				</div>
 				<div>
 					<CreateClassifiedAd submitAd={this.submitNewAd.bind(this)} />
 				</div>
 				<div className="card-deck">{this.classifiedList()}</div>
+			
 			</div>
 		);
 	}

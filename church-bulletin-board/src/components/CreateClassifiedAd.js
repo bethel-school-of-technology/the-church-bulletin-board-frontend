@@ -96,12 +96,14 @@ export default class CreateClassifiedAd extends Component {
 	
 
 	render() {
-		return (
+		return (			
 			<div>
+				<div className="buttoncss">
 				{/* Button trigger modal  */}
 				<button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModalLong">
 					Create a Classified Ad
 				</button>
+				</div>
 				{/* Modal */}
 				<div
 					className="modal fade"
@@ -202,7 +204,7 @@ export default class CreateClassifiedAd extends Component {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>			
 		);
 	}
 }
