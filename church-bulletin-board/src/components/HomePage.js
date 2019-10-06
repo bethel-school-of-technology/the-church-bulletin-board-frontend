@@ -10,7 +10,7 @@ export default class HomePage extends Component {
                 <div className="mission">
                     <h1>Welcome!</h1>
                     <br></br>
-                    <div className="newfont"><p>
+                    <div className="newfont">
                         <h4>This Bulletin Board exists
                             to serve and strengthen our community by
                             connecting people. 
@@ -23,7 +23,7 @@ export default class HomePage extends Component {
                             habit of doing, but encouraging one another—and all 
                             the more as you see the Day approaching.
                         </h5>
-                    </p>
+
                     </div>
                 </div>
             </div>

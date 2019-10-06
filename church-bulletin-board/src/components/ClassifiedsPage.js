@@ -48,7 +48,7 @@ export default class ClassifiedsPage extends Component {
 
 		this.deleteClassified = this.deleteClassified.bind(this);
 		this.submitNewAd = this.submitNewAd.bind(this);
-		this.updateAd = this.updateAd.bind(this);
+		// this.updateAd = this.updateAd.bind(this);
 
 		this.state = { classifiedAds: [] };
 	}
@@ -110,12 +110,12 @@ export default class ClassifiedsPage extends Component {
 		console.log(ads);
 	}
 
-	updateAd(updateAd) {
-		let ads = this.state.classifiedAds;
-		ads.push(updateAd);
-		this.setState({ classifiedAds: ads });
-		console.log(ads);
-	}
+	// updateAd(updateAd) {
+	// 	let ads = this.state.classifiedAds;
+	// 	ads.push(updateAd);
+	// 	this.setState({ classifiedAds: ads });
+	// 	console.log(ads);
+	// }
 
 	render() {
 		return (
@@ -124,7 +124,8 @@ export default class ClassifiedsPage extends Component {
 				<h1>Classifieds</h1>
 				</div>
 				<div>
-					<CreateClassifiedAd submitAd={this.submitNewAd.bind(this)} />
+					<CreateClassifiedAd submitAd={this.submitNewAd.bind(this)}/>
+				
 				</div>
 				<div className="card-deck">{this.classifiedList()}</div>
 			
@@ -132,3 +133,5 @@ export default class ClassifiedsPage extends Component {
 		);
 	}
 }
+
+
