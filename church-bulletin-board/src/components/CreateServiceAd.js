@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './StickyNote.css';
 
-export default class EditAd extends Component {
+export default class CreateServiceAd extends Component {
 	constructor(props) {
 		super(props);
 
@@ -20,28 +20,9 @@ export default class EditAd extends Component {
 			ad_description: '',
 			ad_contactName: '',
 			ad_contactPhone: '',
-			ad_contactEmail: '',
-			ad_ads: []
+			ad_contactEmail: ''
 		};
 	}
-
-	// componentDidMount() {
-	// 	axios
-	// 		.get('http://localhost:4000/classifieds/' + this.props.match.params.id)
-	// 		.then((response) => {
-	// 			this.setState({
-	// 				ad_title: response.data.title,
-	// 				ad_price: response.data.price,
-	// 				ad_description: response.data.description,
-	// 				ad_contactName: response.data.contactName,
-	// 				ad_contactPhone: response.data.contactPhone,
-	// 				ad_contactEmail: response.data.contactEmail
-	// 			});
-	// 		})
-	// 		.catch(function(error) {
-	// 			console.log(error);
-	// 		});
-	// }
 
 	onChangeAdTitle(e) {
 		this.setState({
@@ -82,7 +63,7 @@ export default class EditAd extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		const updateAd = {
+		const newAd = {
 			title: this.state.ad_title,
 			price: this.state.ad_price,
 			description: this.state.ad_description,
@@ -91,14 +72,14 @@ export default class EditAd extends Component {
 			contactEmail: this.state.ad_contactEmail
 		};
 
-		console.log(updateAd)
+		console.log(newAd);
 
 		// MAKE SURE THIS LINES UP WITH BACK END!!
-		axios
-			.post('http://localhost:4000/classifieds/update/' + this.props.match.params.id, updateAd)
+		axios.post('https://localhost:4000/services/add', newAd)
 			.then((result) => console.log(result.data));
+			
 
-			// this.props.updateAd(updateAd)
+		this.props.submitAd(newAd);
 		
 
 		this.setState({
@@ -107,34 +88,36 @@ export default class EditAd extends Component {
 			ad_description: '',
 			ad_contactName: '',
 			ad_contactPhone: '',
-			ad_contactEmail: '',
+			ad_contactEmail: '',	
 		})
-
-		// window.location = './classifieds';
-
+		
+		// window.location = '/classifieds';	//close modal code needed!
 	}
+	
 
 	render() {
-		return (
+		return (			
 			<div>
+				<div className="buttoncss">
 				{/* Button trigger modal  */}
 				<button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModalLong">
-					Edit Ad
+					Create a Service Ad
 				</button>
+				</div>
 				{/* Modal */}
 				<div
 					className="modal fade"
 					id="exampleModalLong"
 					tabIndex="-1"
 					role="dialog"
-					aria-labelledby="exampleModalLongTitle"
+					aria-labelledby="createAdModalTitle"
 					aria-hidden="true"
 				>
 					<div className="modal-dialog" role="document">
 						<div className="modal-content">
 							<div className="modal-header">
 								<h5 className="modal-title" id="createAdModalTitle">
-									EDIT Ad
+									Service Ad
 								</h5>
 							</div>
 							<div className="modal-body">
@@ -157,6 +140,7 @@ export default class EditAd extends Component {
 											<input
 												type="text"
 												className="form-control"
+												placeholder="$"
 												value={this.state.ad_price}
 												onChange={this.onChangeAdPrice}
 											/>
@@ -209,7 +193,8 @@ export default class EditAd extends Component {
 										</div>
 									</div>
 									<div className="modal-footer">
-										<input className="btn btn-dark" type="submit" value="UPDATE" />
+										<input className="btn btn-dark" type="submit" value="SUBMIT Advertisement"/>
+										
 										<button type="button" className="btn btn-secondary" data-dismiss="modal">
 											Close
 										</button>
@@ -219,7 +204,7 @@ export default class EditAd extends Component {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>			
 		);
 	}
 }
