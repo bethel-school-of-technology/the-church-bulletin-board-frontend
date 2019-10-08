@@ -1,0 +1,15 @@
+.card {
+	background-color: #f9ec7b; 
+	box-shadow: 3px 3px 10px;
+	
+}
+
+.card-wrapper {
+	margin-bottom: 20px;
+	display: inline-block;
+	padding: 20px;
+}
+
+.card-text {
+	font-size: 1rem;
+}

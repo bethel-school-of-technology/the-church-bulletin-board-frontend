@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './StickyNote.css';
 
-export default class CreateClassifiedAd extends Component {
+export default class CreateEventAd extends Component {
 	constructor(props) {
 		super(props);
 
@@ -75,7 +75,7 @@ export default class CreateClassifiedAd extends Component {
 		console.log(newAd);
 
 		// MAKE SURE THIS LINES UP WITH BACK END!!
-		axios.post('https://localhost:4000/classifieds/add', newAd)
+		axios.post('https://localhost:4000/events/add', newAd)
 			.then((result) => console.log(result.data));
 			
 
@@ -101,7 +101,7 @@ export default class CreateClassifiedAd extends Component {
 				<div className="buttoncss">
 				{/* Button trigger modal  */}
 				<button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModalLong">
-					Create a Classified Ad
+					Create Event
 				</button>
 				</div>
 				{/* Modal */}
@@ -117,7 +117,7 @@ export default class CreateClassifiedAd extends Component {
 						<div className="modal-content">
 							<div className="modal-header">
 								<h5 className="modal-title" id="createAdModalTitle">
-									Classified Ad
+                                Tell Us About Your Event
 								</h5>
 							</div>
 							<div className="modal-body">
