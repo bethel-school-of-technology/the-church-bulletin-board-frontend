@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import CreateClassifiedAd from './CreateClassifiedAd';
-import EditAd from './EditAd';
+// import EditAd from './EditAd';
 import '../ClassifiedsPage.css';
 
 const Ads = (props) => (
